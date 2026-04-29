@@ -1,0 +1,220 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.tours-page {
+    background-color: $color-white;
+}
+
+.page-hero {
+    color: $color-white;
+    padding: 120px 0;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+
+    @include mobile {
+        padding: 88px 0;
+    }
+
+    &--tours {
+        background-image: linear-gradient(rgba(33, 77, 56, 0.78), rgba(33, 77, 56, 0.78)),
+            url("/tours-hero.jpg");
+    }
+
+    &__eyebrow {
+        color: $color-secondary;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 14px;
+    }
+
+    &__title {
+        font-size: 54px;
+        color: $color-white;
+        margin-bottom: 18px;
+
+        @include tablet {
+            font-size: 42px;
+        }
+
+        @include mobile {
+            font-size: 32px;
+        }
+    }
+
+    &__text {
+        max-width: 720px;
+        margin: 0 auto;
+        font-size: 18px;
+
+        @include mobile {
+            font-size: 16px;
+        }
+    }
+}
+
+.section-kicker {
+    color: $color-secondary;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.tour-overview {
+    padding: 90px 0;
+
+    @include mobile {
+        padding: 70px 0;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1.4fr 0.9fr;
+        gap: 28px;
+        align-items: start;
+
+        @include tablet {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__content {
+        h2 {
+            font-size: 40px;
+            margin-bottom: 18px;
+
+            @include mobile {
+                font-size: 30px;
+            }
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: $color-text;
+            font-size: 17px;
+
+            @include mobile {
+                font-size: 16px;
+            }
+        }
+    }
+
+    &__list {
+        display: grid;
+        gap: 12px;
+
+        li {
+            position: relative;
+            padding-left: 18px;
+            color: $color-text;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 10px;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: $color-primary;
+            }
+        }
+    }
+
+    &__card {
+        background-color: $color-light-bg;
+        border-radius: $radius-md;
+        padding: 30px;
+        box-shadow: $shadow-soft;
+
+        h3 {
+            font-size: 26px;
+            margin-bottom: 14px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: $color-text;
+        }
+
+        a {
+            display: inline-block;
+            background-color: $color-primary;
+            color: $color-white;
+            padding: 12px 18px;
+            border-radius: $radius-sm;
+        }
+    }
+}
+
+.tour-listing {
+    padding: 90px 0;
+    background-color: $color-light-bg;
+
+    @include mobile {
+        padding: 70px 0;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+
+        @include tablet {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.tour-process {
+    padding: 90px 0;
+
+    @include mobile {
+        padding: 70px 0;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+
+        @include tablet {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.process-card {
+    background-color: $color-white;
+    border-radius: $radius-md;
+    padding: 28px;
+    box-shadow: $shadow-soft;
+
+    span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background-color: $color-primary;
+        color: $color-white;
+        font-weight: 700;
+        margin-bottom: 18px;
+    }
+
+    h3 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    p {
+        color: $color-text;
+    }
+}

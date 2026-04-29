@@ -1,65 +1,85 @@
-import Image from "next/image";
+import HeaderTopbar from "@/components/HeaderTopbar/HeaderTopbar";
+import Navbar from "@/components/Navbar/Navbar";
+import Hero from "@/components/Hero/Hero";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import ExperienceCard from "@/components/ExperienceCard/ExperienceCard";
+import TourCard from "@/components/TourCard/TourCard";
+import TestimonialCard from "@/components/TestimonialCard/TestimonialCard";
+import Footer from "@/components/Footer/Footer";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <HeaderTopbar />
+      <Navbar />
+      <Hero />
+      <section>
+        <div className="container">
+          <SectionTitle
+            title="Most popular Experiences"
+            subtitle="Explore a different way to travel"
+          />
+
+          <div className="experience-grid">
+            <ExperienceCard title="Camping" image="/camping.jpg" />
+            <ExperienceCard title="Trekking" image="/trekking.jpg" />
+            <ExperienceCard title="Parasailing" image="/parasailing.jpg" />
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+      </section>
+      <section>
+        <div className="container">
+          <SectionTitle
+            title="Top Tour Packages"
+            subtitle="Explore a different way to travel"
+          />
+          <div className="experience-grid">
+            <TourCard
+              title="3N4D Nature Unbound"
+              image="/tour1.jpg"
+              price="₹7500"
+              duration="3 Nights 4 Days"
+              description="Explore waterfalls, hills, caves, and cultural destinations."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <TourCard
+              title="1N2D Serene Splendors"
+              image="/tour2.jpg"
+              price="₹3500"
+              duration="1 Night 2 Days"
+              description="A quick Koraput getaway filled with nature and spirituality."
+            />
+            <TourCard
+              title="4N5D Koraput Expedition"
+              image="/tour3.jpg"
+              price="₹9000"
+              duration="4 Nights 5 Days"
+              description="A longer journey through scenic landscapes and hidden gems."
+            />
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+      <section>
+        <div className="container">
+          <SectionTitle title="Client Reviews" subtitle="Explore a different way to travel" />
+
+          <div className="experience-grid">
+            <TestimonialCard
+              name="Prajna Paramita Rout"
+              text="Wonderful service and beautiful memories."
+            />
+            <TestimonialCard
+              name="R Ranjan Kumar Sahoo"
+              text="Camping experience was smooth and unforgettable."
+            />
+            <TestimonialCard
+              name="Mousami Mohapatra"
+              text="Very well planned trip and great hospitality."
+            />
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </>
   );
 }

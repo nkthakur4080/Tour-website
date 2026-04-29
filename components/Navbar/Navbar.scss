@@ -1,0 +1,122 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.navbar {
+    background-color: $color-white;
+    border-bottom: 1px solid $color-border;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 80px;
+        gap: 24px;
+        position: relative;
+    }
+
+    &__logo {
+        font-size: 28px;
+        font-weight: 700;
+        color: $color-primary;
+        position: relative;
+        z-index: 2;
+        flex-shrink: 0;
+    }
+
+    &__toggle {
+        display: none;
+        width: 48px;
+        height: 48px;
+        border: 1px solid $color-border;
+        border-radius: $radius-sm;
+        background-color: $color-white;
+        padding: 0;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+
+        span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            margin: 4px auto;
+            background-color: $color-heading;
+            transition: transform $transition-fast, opacity $transition-fast;
+        }
+
+        @include tablet {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+        }
+    }
+
+    &__menu {
+        display: flex;
+        gap: 28px;
+        align-items: center;
+
+        a {
+            color: $color-heading;
+            font-weight: 500;
+            transition: color $transition-fast;
+            padding: 8px 0;
+
+            &:hover {
+                color: $color-primary;
+            }
+        }
+
+        @include tablet {
+            display: none;
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 0;
+            right: 0;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+            background-color: $color-white;
+            border: 1px solid $color-border;
+            border-radius: $radius-md;
+            box-shadow: $shadow-soft;
+            overflow: hidden;
+
+            a {
+                padding: 16px 20px;
+                border-bottom: 1px solid $color-border;
+            }
+
+            a:last-child {
+                border-bottom: 0;
+            }
+        }
+    }
+
+    &__menu--open {
+        @include tablet {
+            display: flex;
+        }
+    }
+}
+
+@include tablet {
+    .navbar {
+        &__inner {
+            min-height: 72px;
+        }
+    }
+}
+
+@include mobile {
+    .navbar {
+        &__logo {
+            font-size: 24px;
+        }
+    }
+}

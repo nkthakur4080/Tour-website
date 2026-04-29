@@ -1,0 +1,18 @@
+@use "../../styles/abstracts/variables" as *;
+
+.testimonial-card {
+    background: $color-light-bg;
+    padding: 28px;
+    border-radius: $radius-md;
+    box-shadow: $shadow-soft;
+
+    p {
+        margin-bottom: 16px;
+        font-style: italic;
+    }
+
+    h4 {
+        color: $color-primary;
+        font-size: 18px;
+    }
+}

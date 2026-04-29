@@ -1,0 +1,6 @@
+@use "../abstracts/variables" as *;
+
+.container {
+    width: min(100% - 32px, $container-width);
+    margin: 0 auto;
+}

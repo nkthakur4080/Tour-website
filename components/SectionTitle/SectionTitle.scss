@@ -1,0 +1,16 @@
+@use "../../styles/abstracts/variables" as *;
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h2 {
+        font-size: 38px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: $color-text;
+        font-size: 17px;
+    }
+}
