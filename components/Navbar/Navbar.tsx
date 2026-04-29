@@ -21,7 +21,7 @@ export default function Navbar() {
         <header className="navbar">
             <div className="container navbar__inner">
                 <Link href="/" className="navbar__logo">
-                    Hi Koraput
+                    <img src="/logo.png" alt="Logo" style={{ maxWidth: "150px" }} />
                 </Link>
 
                 <button

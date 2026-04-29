@@ -5,7 +5,7 @@ export default function Footer() {
         <footer className="footer">
             <div className="container footer__inner">
                 <div>
-                    <h3>GoKoraput Hospitality Pvt Ltd.</h3>
+                    <h3>Hikoraput Hospitality Pvt Ltd.</h3>
                     <p>Koraput, Odisha</p>
                 </div>
 
