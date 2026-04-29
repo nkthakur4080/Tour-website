@@ -192,6 +192,27 @@
     &:hover {
         background-color: $color-primary-dark;
     }
+
+    &:disabled {
+        opacity: 0.75;
+        cursor: not-allowed;
+    }
+}
+
+.form-status {
+    border-radius: $radius-sm;
+    padding: 12px 14px;
+    font-size: 15px;
+
+    &--success {
+        background-color: rgba(47, 109, 79, 0.12);
+        color: $color-primary-dark;
+    }
+
+    &--error {
+        background-color: rgba(160, 38, 38, 0.12);
+        color: #8a1f1f;
+    }
 }
 
 .contact-faq {

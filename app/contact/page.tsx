@@ -2,6 +2,7 @@ import HeaderTopbar from "@/components/HeaderTopbar/HeaderTopbar";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import ContactForm from "@/components/ContactForm/ContactForm";
 import "./contact.scss";
 
 const faqItems = [
@@ -68,36 +69,7 @@ export default function ContactPage() {
 
                         <div className="contact-form-card">
                             <h3>Send an Inquiry</h3>
-
-                            <form className="contact-form">
-                                <div className="form-group">
-                                    <label htmlFor="name">Full Name</label>
-                                    <input id="name" type="text" placeholder="Enter your name" />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="email">Email Address</label>
-                                    <input id="email" type="email" placeholder="Enter your email" />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="phone">Phone Number</label>
-                                    <input id="phone" type="tel" placeholder="Enter your phone number" />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="message">Trip Details</label>
-                                    <textarea
-                                        id="message"
-                                        rows={5}
-                                        placeholder="Tell us about your dates, group size, and preferred activities"
-                                    />
-                                </div>
-
-                                <button type="submit" className="btn-primary">
-                                    Send Message
-                                </button>
-                            </form>
+                            <ContactForm />
                         </div>
                     </div>
                 </section>
