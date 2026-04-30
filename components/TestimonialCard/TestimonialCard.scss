@@ -1,10 +1,15 @@
 @use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
 
 .testimonial-card {
     background: $color-light-bg;
     padding: 28px;
     border-radius: $radius-md;
     box-shadow: $shadow-soft;
+
+    @include mobile {
+        padding: 22px;
+    }
 
     p {
         margin-bottom: 16px;
