@@ -90,7 +90,7 @@ async function sendWithResend({
 
     const resend = new Resend(apiKey);
 
-    await resend.emails.send({
+    const result = await resend.emails.send({
         from,
         to,
         replyTo,
@@ -98,6 +98,10 @@ async function sendWithResend({
         text,
         html,
     });
+
+    if (result.error) {
+        throw new Error(result.error.message || "Resend could not send the email.");
+    }
 }
 
 async function sendWithSmtp({
@@ -214,9 +218,14 @@ export async function POST(request: Request) {
     } catch (error) {
         console.error("Contact form error:", error);
 
+        const message =
+            error instanceof Error
+                ? error.message
+                : "We could not send your inquiry right now. Please try again later.";
+
         return NextResponse.json(
             {
-                message: "We could not send your inquiry right now. Please try again later.",
+                message,
             },
             { status: 500 }
         );
