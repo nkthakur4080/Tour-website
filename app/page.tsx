@@ -21,9 +21,9 @@ export default function HomePage() {
           />
 
           <div className="experience-grid">
-            <ExperienceCard title="Camping" image="/product-img/card-1.jpeg" />
-            <ExperienceCard title="Trekking" image="/product-img/card-1.jpeg" />
-            <ExperienceCard title="Parasailing" image="/product-img/card-1.jpeg" />
+            <ExperienceCard title="Camping" image="/product-img/card-4.jpeg" />
+            <ExperienceCard title="Trekking" image="/product-img/card-5.jpeg" />
+            <ExperienceCard title="Parasailing" image="/product-img/card-6.jpeg" />
           </div>
         </div>
       </section>
@@ -43,14 +43,14 @@ export default function HomePage() {
             />
             <TourCard
               title="1N2D Serene Splendors"
-              image="/product-img/card-1.jpeg"
+              image="/product-img/card-2.jpeg"
               price="₹3500"
               duration="1 Night 2 Days"
               description="A quick Koraput getaway filled with nature and spirituality."
             />
             <TourCard
               title="4N5D Koraput Expedition"
-              image="/product-img/card-1.jpeg"
+              image="/product-img/card-3.jpeg"
               price="₹9000"
               duration="4 Nights 5 Days"
               description="A longer journey through scenic landscapes and hidden gems."
