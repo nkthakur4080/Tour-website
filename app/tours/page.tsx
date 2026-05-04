@@ -3,52 +3,8 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import TourCard from "@/components/TourCard/TourCard";
+import { tours } from "@/data/tours";
 import "./tours.scss";
-
-const tours = [
-    {
-        title: "3N4D Nature Unbound",
-        image: "/product-img/card-1.jpeg",
-        price: "Rs. 7500",
-        duration: "3 Nights 4 Days",
-        description: "Explore waterfalls, hills, caves, tribal culture, and scenic valleys.",
-    },
-    {
-        title: "1N2D Serene Splendors",
-        image: "/product-img/card-2.jpeg",
-        price: "Rs. 3500",
-        duration: "1 Night 2 Days",
-        description: "A short Koraput getaway with peaceful views, temples, and local charm.",
-    },
-    {
-        title: "4N5D Koraput Expedition",
-        image: "/product-img/card-3.jpeg",
-        price: "Rs. 9000",
-        duration: "4 Nights 5 Days",
-        description: "A complete nature-focused itinerary through hidden gems and local stays.",
-    },
-    {
-        title: "2N3D Waterfalls Trail",
-        image: "/product-img/card-4.jpeg",
-        price: "Rs. 5200",
-        duration: "2 Nights 3 Days",
-        description: "A refreshing circuit covering famous waterfalls, viewpoints, and forest roads.",
-    },
-    {
-        title: "Adventure Weekend Escape",
-        image: "/product-img/card-5.jpeg",
-        price: "Rs. 4200",
-        duration: "2 Days 1 Night",
-        description: "Camping, bonfire, and light trekking for travelers looking for a quick adventure.",
-    },
-    {
-        title: "Culture and Nature Retreat",
-        image: "/product-img/card-6.jpeg",
-        price: "Rs. 6800",
-        duration: "3 Days 2 Nights",
-        description: "A slower trip combining scenic landscapes with authentic local experiences.",
-    },
-];
 
 const highlights = [
     "Multi-day and short-stay tour packages",
@@ -111,13 +67,13 @@ export default function ToursPage() {
                         <div className="tour-listing__grid">
                             {tours.map((tour) => (
                                 <TourCard
-                                    key={tour.title}
+                                    key={tour.id}
                                     title={tour.title}
-                                    image={tour.image}
+                                    image={tour.heroImage}
                                     price={tour.price}
                                     duration={tour.duration}
-                                    description={tour.description}
-                                    href="/contact"
+                                    description={tour.shortDescription}
+                                    href={`/tours/${tour.slug}`}
                                 />
                             ))}
                         </div>
