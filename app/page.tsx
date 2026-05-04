@@ -21,9 +21,9 @@ export default function HomePage() {
           />
 
           <div className="experience-grid">
-            <ExperienceCard title="Camping" image="/product-img/card-4.jpeg" />
-            <ExperienceCard title="Trekking" image="/product-img/card-5.jpeg" />
-            <ExperienceCard title="Parasailing" image="/product-img/card-6.jpeg" />
+            <ExperienceCard title="Camping" image="/product-img/camping.jpg" />
+            <ExperienceCard title="Trekking" image="/product-img/treking.jpg" />
+            <ExperienceCard title="Parasailing" image="/product-img/parasailing.jpg" />
           </div>
         </div>
       </section>
