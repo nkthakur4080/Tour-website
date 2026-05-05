@@ -4,12 +4,19 @@ export type TourItineraryItem = {
     description: string;
 };
 
+export type TourGroupPrice = {
+    groupSize: string;
+    price: string;
+    note?: string;
+};
+
 export type TourPackage = {
     id: number;
     slug: string;
     title: string;
     price: string;
     duration: string;
+    tourType: string;
     location: string;
     bestFor: string;
     heroImage: string;
@@ -18,6 +25,7 @@ export type TourPackage = {
     overview: string;
     highlights: string[];
     itinerary: TourItineraryItem[];
+    groupPricing: TourGroupPrice[];
     included: string[];
     excluded: string[];
 };
@@ -29,6 +37,7 @@ export const tours: TourPackage[] = [
         title: "3N4D Nature Unbound",
         price: "Rs. 7500",
         duration: "3 Nights 4 Days",
+        tourType: "Nature Adventure",
         location: "Koraput, Odisha",
         bestFor: "Nature lovers, families, and couples",
         heroImage: "/product-img/card-1.jpeg",
@@ -73,6 +82,11 @@ export const tours: TourPackage[] = [
                     "Enjoy a calm morning, local wrap-up, and departure with memorable experiences.",
             },
         ],
+        groupPricing: [
+            { groupSize: "Group of 2", price: "Rs. 8,000", note: "per adult" },
+            { groupSize: "Group of 4", price: "Rs. 6,500", note: "per adult" },
+            { groupSize: "Group of 6", price: "Rs. 5,900", note: "per adult" },
+        ],
         included: [
             "Accommodation",
             "Sightseeing assistance",
@@ -92,6 +106,7 @@ export const tours: TourPackage[] = [
         title: "1N2D Serene Splendors",
         price: "Rs. 3500",
         duration: "1 Night 2 Days",
+        tourType: "Adventure",
         location: "Koraput, Odisha",
         bestFor: "Weekend travelers and quick getaways",
         heroImage: "/product-img/card-2.jpeg",
@@ -123,6 +138,11 @@ export const tours: TourPackage[] = [
                     "Visit key nearby attractions, enjoy the atmosphere of Koraput, and depart later in the day.",
             },
         ],
+        groupPricing: [
+            { groupSize: "Group of 2", price: "Rs. 8,000", note: "per adult" },
+            { groupSize: "Group of 4", price: "Rs. 5,500", note: "per adult" },
+            { groupSize: "Group of 6", price: "Rs. 5,000", note: "per adult" },
+        ],
         included: [
             "Accommodation",
             "Basic travel coordination",
@@ -140,6 +160,7 @@ export const tours: TourPackage[] = [
         title: "4N5D Koraput Expedition",
         price: "Rs. 9000",
         duration: "4 Nights 5 Days",
+        tourType: "Expedition",
         location: "Koraput, Odisha",
         bestFor: "Explorers and slow-travel enthusiasts",
         heroImage: "/product-img/card-3.jpeg",
@@ -190,6 +211,11 @@ export const tours: TourPackage[] = [
                     "Wrap up the journey and depart with a complete Koraput experience.",
             },
         ],
+        groupPricing: [
+            { groupSize: "Group of 2", price: "Rs. 10,500", note: "per adult" },
+            { groupSize: "Group of 4", price: "Rs. 8,200", note: "per adult" },
+            { groupSize: "Group of 6", price: "Rs. 7,600", note: "per adult" },
+        ],
         included: [
             "Accommodation",
             "Trip coordination",
@@ -209,6 +235,7 @@ export const tours: TourPackage[] = [
         title: "2N3D Waterfalls Trail",
         price: "Rs. 5200",
         duration: "2 Nights 3 Days",
+        tourType: "Scenic Escape",
         location: "Koraput, Odisha",
         bestFor: "Friends, photographers, and short-break travelers",
         heroImage: "/product-img/card-4.jpeg",
@@ -246,6 +273,11 @@ export const tours: TourPackage[] = [
                     "Enjoy a shorter final morning before completing the trip and heading back.",
             },
         ],
+        groupPricing: [
+            { groupSize: "Group of 2", price: "Rs. 6,200", note: "per adult" },
+            { groupSize: "Group of 4", price: "Rs. 5,400", note: "per adult" },
+            { groupSize: "Group of 6", price: "Rs. 4,900", note: "per adult" },
+        ],
         included: [
             "Accommodation",
             "Sightseeing coordination",
@@ -263,6 +295,7 @@ export const tours: TourPackage[] = [
         title: "Adventure Weekend Escape",
         price: "Rs. 4200",
         duration: "2 Days 1 Night",
+        tourType: "Adventure",
         location: "Koraput, Odisha",
         bestFor: "Adventure seekers and weekend groups",
         heroImage: "/product-img/card-5.jpeg",
@@ -294,6 +327,11 @@ export const tours: TourPackage[] = [
                     "Begin with light trekking or exploration before wrapping up and returning.",
             },
         ],
+        groupPricing: [
+            { groupSize: "Group of 2", price: "Rs. 5,500", note: "per adult" },
+            { groupSize: "Group of 4", price: "Rs. 4,800", note: "per adult" },
+            { groupSize: "Group of 6", price: "Rs. 4,300", note: "per adult" },
+        ],
         included: [
             "Camp stay",
             "Basic activity coordination",
@@ -311,6 +349,7 @@ export const tours: TourPackage[] = [
         title: "Culture and Nature Retreat",
         price: "Rs. 6800",
         duration: "3 Days 2 Nights",
+        tourType: "Cultural Retreat",
         location: "Koraput, Odisha",
         bestFor: "Slow travelers and culture-focused visitors",
         heroImage: "/product-img/card-6.jpeg",
@@ -347,6 +386,11 @@ export const tours: TourPackage[] = [
                 description:
                     "Take in the final moments of the trip before departure.",
             },
+        ],
+        groupPricing: [
+            { groupSize: "Group of 2", price: "Rs. 7,800", note: "per adult" },
+            { groupSize: "Group of 4", price: "Rs. 6,900", note: "per adult" },
+            { groupSize: "Group of 6", price: "Rs. 6,200", note: "per adult" },
         ],
         included: [
             "Accommodation",

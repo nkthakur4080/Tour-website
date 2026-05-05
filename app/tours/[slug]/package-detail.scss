@@ -139,6 +139,17 @@
         border-radius: $radius-md;
         box-shadow: $shadow-soft;
 
+        @include mobile {
+            padding: 24px;
+        }
+
+        .package-summary__eyebrow {
+            color: $color-heading;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
         h3 {
             font-size: 26px;
             margin-bottom: 18px;
@@ -160,6 +171,50 @@
             color: $color-white;
             padding: 12px 18px;
             border-radius: $radius-sm;
+        }
+    }
+
+    &__pricing {
+        border-top: 1px solid $color-border;
+        margin: 8px 0 24px;
+    }
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 22px 0;
+    border-bottom: 1px solid $color-border;
+
+    @include mobile {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__label {
+        color: $color-heading;
+        font-size: 18px;
+    }
+
+    &__value {
+        display: grid;
+        justify-items: end;
+        gap: 6px;
+
+        @include mobile {
+            justify-items: start;
+        }
+
+        span {
+            font-size: 18px;
+            font-weight: 700;
+            color: $color-heading;
+        }
+
+        small {
+            color: $color-text;
+            font-size: 14px;
         }
     }
 }

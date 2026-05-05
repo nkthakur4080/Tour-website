@@ -76,8 +76,12 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
                         </div>
 
                         <aside className="package-summary__card">
+                            <p className="package-summary__eyebrow">Tour Details</p>
                             <h3>Quick Facts</h3>
                             <ul>
+                                <li>
+                                    <strong>Tour Type:</strong> {tour.tourType}
+                                </li>
                                 <li>
                                     <strong>Duration:</strong> {tour.duration}
                                 </li>
@@ -91,6 +95,20 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
                                     <strong>Starting Price:</strong> {tour.price}
                                 </li>
                             </ul>
+
+                            <div className="package-summary__pricing">
+                                {tour.groupPricing.map((item) => (
+                                    <div key={item.groupSize} className="price-row">
+                                        <div className="price-row__label">
+                                            <strong>{item.groupSize}</strong>
+                                        </div>
+                                        <div className="price-row__value">
+                                            <span>{item.price}</span>
+                                            {item.note ? <small>{item.note}</small> : null}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                             <a href="/contact">Send Inquiry</a>
                         </aside>
                     </div>
