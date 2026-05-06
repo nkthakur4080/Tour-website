@@ -95,20 +95,6 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
                                     <strong>Starting Price:</strong> {tour.price}
                                 </li>
                             </ul>
-
-                            <div className="package-summary__pricing">
-                                {tour.groupPricing.map((item) => (
-                                    <div key={item.groupSize} className="price-row">
-                                        <div className="price-row__label">
-                                            <strong>{item.groupSize}</strong>
-                                        </div>
-                                        <div className="price-row__value">
-                                            <span>{item.price}</span>
-                                            {item.note ? <small>{item.note}</small> : null}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
                             <a href="/contact">Send Inquiry</a>
                         </aside>
                     </div>
@@ -188,6 +174,58 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
                                 <div key={`${tour.slug}-${index + 1}`} className="gallery-card">
                                     <img src={image} alt={`${tour.title} view ${index + 1}`} />
                                 </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                <section className="package-pricing">
+                    <div className="container">
+                        <div className="package-pricing__heading">
+                            <p className="section-kicker">Choose Your Group Size</p>
+                            <h2>Better prices as your group grows</h2>
+                        </div>
+
+                        <div className="package-pricing__grid">
+                            {tour.groupPricing.map((item, index) => (
+                                <article
+                                    key={item.groupSize}
+                                    className={`pricing-card ${index === 1 ? "pricing-card--featured" : ""}`}
+                                >
+                                    {index === 1 ? (
+                                        <span className="pricing-card__badge">Most Popular</span>
+                                    ) : null}
+
+                                    <div className="pricing-card__icon" aria-hidden="true">
+                                        {index === 0 ? "2" : index === 1 ? "4" : "6"}
+                                    </div>
+
+                                    <h3>{item.groupSize}</h3>
+                                    <p className="pricing-card__tag">
+                                        {index === 0
+                                            ? "Premium Experience"
+                                            : index === 1
+                                              ? "Best Value"
+                                              : "Maximum Savings"}
+                                    </p>
+
+                                    <div className="pricing-card__price">
+                                        <span>{item.price}</span>
+                                        <small>{item.note || "per person"}</small>
+                                    </div>
+
+                                    <p className="pricing-card__saving">
+                                        {index === 0
+                                            ? "Best for a private, more personal trip."
+                                            : index === 1
+                                              ? "Balanced price and comfort for small groups."
+                                              : "Best value for larger groups and shared travel."}
+                                    </p>
+
+                                    <a href="/contact" className="pricing-card__button">
+                                        Book Now
+                                    </a>
+                                </article>
                             ))}
                         </div>
                     </div>
