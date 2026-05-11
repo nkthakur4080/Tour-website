@@ -8,6 +8,7 @@ type Props = {
     duration: string;
     description: string;
     href?: string;
+    buttonLabel?: string;
 };
 
 export default function TourCard({
@@ -17,6 +18,7 @@ export default function TourCard({
     duration,
     description,
     href = "/contact",
+    buttonLabel = "View Details",
 }: Props) {
     return (
         <article className="tour-card">
@@ -27,7 +29,7 @@ export default function TourCard({
                 <p>{description}</p>
                 <div className="tour-card__footer">
                     <span>{duration}</span>
-                    <Link href={href}>View Details</Link>
+                    <Link href={href}>{buttonLabel}</Link>
                 </div>
             </div>
         </article>

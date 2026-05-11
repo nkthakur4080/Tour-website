@@ -8,6 +8,8 @@
     box-shadow: $shadow-soft;
     transition: transform $transition-fast;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 
     &:hover {
         transform: translateY(-6px);
@@ -23,15 +25,31 @@
         }
     }
 
-    h3 {
+    &__body {
         padding: 20px;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex-grow: 1;
+
+        @include mobile {
+            padding: 18px;
+        }
+    }
+
+    h3 {
         font-size: 22px;
+        color: $color-heading;
 
         @include mobile {
             font-size: 20px;
-            padding: 18px;
         }
+    }
+
+    p {
+        color: $color-text;
+        font-size: 15px;
     }
 }
 

@@ -3,25 +3,8 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import ContactForm from "@/components/ContactForm/ContactForm";
+import FaqSection from "@/components/FaqSection/FaqSection";
 import "./contact.scss";
-
-const faqItems = [
-    {
-        question: "Can I customize my tour package?",
-        answer:
-            "Yes. We can help adjust destinations, trip duration, and experiences based on your budget and preferences.",
-    },
-    {
-        question: "Do you arrange stays and local travel support?",
-        answer:
-            "Yes. We assist with stay planning, route coordination, and general travel support for Koraput trips.",
-    },
-    {
-        question: "How should I contact you for booking?",
-        answer:
-            "You can use the inquiry form, call directly, or reach out by email for faster trip planning.",
-    },
-];
 
 export default function ContactPage() {
     return (
@@ -74,23 +57,10 @@ export default function ContactPage() {
                     </div>
                 </section>
 
-                <section className="contact-faq">
-                    <div className="container">
-                        <SectionTitle
-                            title="Frequently Asked Questions"
-                            subtitle="A few quick answers before you reach out"
-                        />
-
-                        <div className="contact-faq__grid">
-                            {faqItems.map((item) => (
-                                <article key={item.question} className="faq-card">
-                                    <h3>{item.question}</h3>
-                                    <p>{item.answer}</p>
-                                </article>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                <FaqSection
+                    title="A few quick answers before you reach out"
+                    subtitle="Frequently Asked Questions"
+                />
             </main>
 
             <Footer />
