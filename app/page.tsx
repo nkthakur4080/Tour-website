@@ -16,32 +16,32 @@ const places = [
     {
         title: "Deomali",
         description: "Odisha's highest peak with stunning views",
-        image: "/product-img/card-4.jpeg",
+        image: "/product-img/deomali-mountain.png",
     },
     {
         title: "Duduma Waterfall",
         description: "One of the tallest waterfalls in Odisha",
-        image: "/product-img/card-1.jpeg",
+        image: "/product-img/duduma-waterfall.jpg",
     },
     {
         title: "Gupteswar Cave",
         description: "Ancient cave with spiritual significance",
-        image: "/product-img/card-5.jpeg",
+        image: "/product-img/gupteshwar-temple.jpeg",
     },
     {
         title: "Coffee Plantations",
         description: "Scenic coffee gardens in Koraput",
-        image: "/product-img/card-6.jpeg",
+        image: "/product-img/koraput_coffee.jpeg",
     },
     {
         title: "Jagannath Temple",
         description: "Famous temple with spiritual vibes",
-        image: "/product-img/card-2.jpeg",
+        image: "/product-img/jagannath-temple-koraput.jpg",
     },
     {
         title: "Kolab Reservoir",
         description: "Serene waters and relaxing landscapes",
-        image: "/hero.jpeg",
+        image: "/product-img/kolab_dam.jpeg",
     },
 ];
 
