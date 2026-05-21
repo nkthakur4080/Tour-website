@@ -19,4 +19,27 @@
             gap: 6px;
         }
     }
+
+    &__item {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+
+        span:last-child {
+            line-height: 1.4;
+        }
+
+        @include mobile {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__icon {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        color: $color-secondary;
+    }
 }

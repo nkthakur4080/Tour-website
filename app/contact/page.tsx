@@ -42,6 +42,7 @@ export default function ContactPage() {
                                 <div className="contact-info-card">
                                     <h3>Email</h3>
                                     <p>info@hikoraput.com</p>
+                                    <p>support@hikoraput.com</p>
                                 </div>
                                 <div className="contact-info-card">
                                     <h3>Location</h3>

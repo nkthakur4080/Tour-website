@@ -75,7 +75,7 @@ async function sendWithResend({
     text,
     html,
 }: {
-    to: string;
+    to: string[];
     from: string;
     replyTo: string;
     subject: string;
@@ -172,32 +172,46 @@ export async function POST(request: Request) {
             );
         }
 
+        const recipients = to
+            .split(",")
+            .map((value) => value.trim())
+            .filter(Boolean);
+
+        if (recipients.length === 0) {
+            return NextResponse.json(
+                {
+                    message: "Please add at least one recipient email in CONTACT_TO_EMAIL.",
+                },
+                { status: 500 }
+            );
+        }
+
         const emailContent = buildEmailContent({ name, email, phone, message });
 
         if (provider === "resend") {
             await sendWithResend({
-                to,
+                to: recipients,
                 from,
                 replyTo: email,
                 ...emailContent,
             });
         } else if (provider === "smtp") {
             await sendWithSmtp({
-                to,
+                to: recipients.join(", "),
                 from,
                 replyTo: email,
                 ...emailContent,
             });
         } else if (process.env.RESEND_API_KEY) {
             await sendWithResend({
-                to,
+                to: recipients,
                 from,
                 replyTo: email,
                 ...emailContent,
             });
         } else if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
             await sendWithSmtp({
-                to,
+                to: recipients.join(", "),
                 from,
                 replyTo: email,
                 ...emailContent,

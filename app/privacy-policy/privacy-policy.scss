@@ -1,0 +1,90 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.privacy-page {
+    background-color: $color-white;
+}
+
+.privacy-hero {
+    background: linear-gradient(rgba(33, 77, 56, 0.82), rgba(33, 77, 56, 0.82)),
+        url("/about-hero.jpg");
+    background-size: cover;
+    background-position: center;
+    color: $color-white;
+    padding: 110px 0;
+    text-align: center;
+
+    &__eyebrow {
+        color: $color-secondary;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 14px;
+    }
+
+    h1 {
+        color: $color-white;
+        font-size: 52px;
+        margin-bottom: 14px;
+
+        @include mobile {
+            font-size: 36px;
+        }
+    }
+
+    p {
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 18px;
+    }
+}
+
+.privacy-content {
+    padding: 80px 0;
+}
+
+.privacy-intro {
+    max-width: 820px;
+    margin: 0 auto 32px;
+    text-align: center;
+
+    p {
+        color: $color-text;
+        font-size: 18px;
+        line-height: 1.8;
+    }
+}
+
+.privacy-sections {
+    display: grid;
+    gap: 24px;
+}
+
+.privacy-card {
+    background: $color-light-bg;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    padding: 30px;
+
+    @include mobile {
+        padding: 22px;
+    }
+
+    h2 {
+        font-size: 28px;
+        margin-bottom: 16px;
+        color: $color-heading;
+
+        @include mobile {
+            font-size: 22px;
+        }
+    }
+
+    p + p {
+        margin-top: 12px;
+    }
+
+    p {
+        color: $color-text;
+        line-height: 1.8;
+    }
+}

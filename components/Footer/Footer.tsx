@@ -30,7 +30,7 @@ export default function Footer() {
                     <Link href="/about">About Us</Link>
                     <Link href="/contact">Contact Us</Link>
                     <Link href="/contact">Terms & Conditions</Link>
-                    <Link href="/contact">Privacy Policy</Link>
+                    <Link href="/privacy-policy">Privacy Policy</Link>
                     <Link href="/contact">Cancellation Policy</Link>
                     <Link href="/contact">FAQ</Link>
                 </div>
@@ -38,13 +38,14 @@ export default function Footer() {
                 <div className="footer__links">
                     <h3>Contact Us</h3>
                     <a href="mailto:info@hikoraput.com">info@hikoraput.com</a>
+                    <a href="mailto:support@hikoraput.com">support@hikoraput.com</a>
                     <a href="tel:09686848817">09686848817</a>
                     <p>Koraput, Odisha, India</p>
                 </div>
             </div>
             <div className="footer__bottom">
                 <div className="container">
-                    <p>© 2024 Hi Koraput Hospitality Pvt. Ltd. All Rights Reserved.</p>
+                    <p>Copyright 2024 Hi Koraput Hospitality Pvt. Ltd. All Rights Reserved.</p>
                 </div>
             </div>
         </footer>
