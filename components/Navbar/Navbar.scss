@@ -24,6 +24,12 @@
         position: relative;
         z-index: 2;
         flex-shrink: 0;
+
+        img {
+            display: block;
+            width: 150px;
+            height: auto;
+        }
     }
 
     &__toggle {
@@ -116,7 +122,9 @@
 @include mobile {
     .navbar {
         &__logo {
-            font-size: 24px;
+            img {
+                width: 150px;
+            }
         }
     }
 }

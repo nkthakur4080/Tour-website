@@ -6,7 +6,7 @@ export default function Footer() {
         <footer className="footer">
             <div className="container footer__inner">
                 <div className="footer__brand">
-                    <img src="/logo.png" alt="Hi Koraput" />
+                    <img src="/logo-footer.png" alt="Hi Koraput" />
                     <p>
                         Hi Koraput Hospitality Pvt. Ltd.
                         <br />
