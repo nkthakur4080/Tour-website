@@ -41,9 +41,9 @@ function buildEmailContent({
     phone,
     message,
 }: Required<ContactPayload>) {
-    const subject = `New Koraput inquiry from ${name}`;
+    const subject = `New Koraput inquiry from ${name} (${email})`;
     const text = [
-        "New travel inquiry received.",
+        "New Koraput travel inquiry received.",
         "",
         `Name: ${name}`,
         `Email: ${email}`,
@@ -54,13 +54,51 @@ function buildEmailContent({
     ].join("\n");
 
     const html = `
-        <div style="font-family: Arial, Helvetica, sans-serif; line-height: 1.6; color: #1e1e1e;">
-            <h2 style="margin-bottom: 16px;">New travel inquiry received</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Phone:</strong> ${phone}</p>
-            <p><strong>Trip Details:</strong></p>
-            <p style="white-space: pre-line;">${message}</p>
+        <div style="margin:0; padding:24px 0; background-color:#f6f8f6; font-family:Arial, Helvetica, sans-serif; color:#1e1e1e;">
+            <div style="max-width:640px; margin:0 auto; background-color:#ffffff; border:1px solid #e5e5e5; border-radius:14px; overflow:hidden; box-shadow:0 8px 24px rgba(0, 0, 0, 0.06);">
+                <div style="background:linear-gradient(135deg, #2f6d4f 0%, #214d38 100%); padding:28px 32px; color:#ffffff;">
+                    <p style="margin:0 0 8px; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#d6a84f; font-weight:700;">
+                        Hi Koraput Inquiry
+                    </p>
+                    <h2 style="margin:0; font-size:28px; line-height:1.3; color:#ffffff;">
+                        New Koraput travel inquiry received
+                    </h2>
+                </div>
+
+                <div style="padding:28px 32px;">
+                    <p style="margin:0 0 24px; font-size:16px; line-height:1.7; color:#555555;">
+                        A new traveler has submitted an inquiry through the website. Here are the details:
+                    </p>
+
+                    <div style="display:grid; gap:14px; margin-bottom:24px;">
+                        <div style="padding:14px 16px; background-color:#f7f6f2; border:1px solid #e5e5e5; border-radius:10px;">
+                            <p style="margin:0 0 4px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:#2f6d4f;">Full Name</p>
+                            <p style="margin:0; font-size:16px; color:#1e1e1e;">${name}</p>
+                        </div>
+
+                        <div style="padding:14px 16px; background-color:#f7f6f2; border:1px solid #e5e5e5; border-radius:10px;">
+                            <p style="margin:0 0 4px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:#2f6d4f;">Email Address</p>
+                            <p style="margin:0; font-size:16px; color:#1e1e1e;">
+                                <a href="mailto:${email}" style="color:#1e1e1e; text-decoration:none;">${email}</a>
+                            </p>
+                        </div>
+
+                        <div style="padding:14px 16px; background-color:#f7f6f2; border:1px solid #e5e5e5; border-radius:10px;">
+                            <p style="margin:0 0 4px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:#2f6d4f;">Phone Number</p>
+                            <p style="margin:0; font-size:16px; color:#1e1e1e;">
+                                <a href="tel:${phone}" style="color:#1e1e1e; text-decoration:none;">${phone}</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style="padding:18px 20px; background-color:#ffffff; border:1px solid #dfe7df; border-left:4px solid #2f6d4f; border-radius:10px;">
+                        <p style="margin:0 0 10px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:#2f6d4f;">
+                            Trip Details
+                        </p>
+                        <p style="margin:0; white-space:pre-line; font-size:16px; line-height:1.8; color:#555555;">${message}</p>
+                    </div>
+                </div>
+            </div>
         </div>
     `;
 
