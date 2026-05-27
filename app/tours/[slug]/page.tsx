@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import HeaderTopbar from "@/components/HeaderTopbar/HeaderTopbar";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
+import PackageItineraryTabs from "@/components/PackageItineraryTabs/PackageItineraryTabs";
 import { getAllTourSlugs, getTourBySlug } from "@/data/tours";
 import "./package-detail.scss";
 
@@ -100,6 +101,17 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
                     </div>
                 </section>
 
+                <section className="package-itinerary">
+                    <div className="container">
+                        <div className="package-section-heading">
+                            <p className="section-kicker">Itinerary</p>
+                            <h2>Day-wise Plan</h2>
+                        </div>
+
+                        <PackageItineraryTabs itinerary={tour.itinerary} />
+                    </div>
+                </section>
+
                 <section className="package-highlights">
                     <div className="container">
                         <div className="package-section-heading">
@@ -111,27 +123,6 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
                             {tour.highlights.map((highlight) => (
                                 <article key={highlight} className="highlight-card">
                                     <p>{highlight}</p>
-                                </article>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                <section className="package-itinerary">
-                    <div className="container">
-                        <div className="package-section-heading">
-                            <p className="section-kicker">Itinerary</p>
-                            <h2>Day-wise Plan</h2>
-                        </div>
-
-                        <div className="package-itinerary__list">
-                            {tour.itinerary.map((item) => (
-                                <article key={item.day} className="itinerary-card">
-                                    <div className="itinerary-card__day">{item.day}</div>
-                                    <div className="itinerary-card__content">
-                                        <h3>{item.title}</h3>
-                                        <p>{item.description}</p>
-                                    </div>
                                 </article>
                             ))}
                         </div>
@@ -182,48 +173,39 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
                 <section className="package-pricing">
                     <div className="container">
                         <div className="package-pricing__heading">
-                            <p className="section-kicker">Choose Your Group Size</p>
-                            <h2>Better prices as your group grows</h2>
+                            <p className="section-kicker">Pricing Packs</p>
+                            <h2>Choose the stay style that fits your trip</h2>
                         </div>
 
-                        <div className="package-pricing__grid">
-                            {tour.groupPricing.map((item, index) => (
+                        <div className="pricing-plans">
+                            {tour.pricingPlans.map((plan, index) => (
                                 <article
-                                    key={item.groupSize}
-                                    className={`pricing-card ${index === 1 ? "pricing-card--featured" : ""}`}
+                                    key={plan.name}
+                                    className={`pricing-plan ${index === 1 ? "pricing-plan--featured" : ""}`}
                                 >
-                                    {index === 1 ? (
-                                        <span className="pricing-card__badge">Most Popular</span>
-                                    ) : null}
-
-                                    <div className="pricing-card__icon" aria-hidden="true">
-                                        {index === 0 ? "2" : index === 1 ? "4" : "6"}
+                                    <div className="pricing-plan__header">
+                                        <p className="pricing-plan__eyebrow">{plan.name}</p>
+                                        <h3>{plan.name} Pack</h3>
+                                        <p>{plan.subtitle}</p>
                                     </div>
 
-                                    <h3>{item.groupSize}</h3>
-                                    <p className="pricing-card__tag">
-                                        {index === 0
-                                            ? "Premium Experience"
-                                            : index === 1
-                                              ? "Best Value"
-                                              : "Maximum Savings"}
-                                    </p>
-
-                                    <div className="pricing-card__price">
-                                        <span>{item.price}</span>
-                                        <small>{item.note || "per person"}</small>
+                                    <div className="pricing-plan__rates">
+                                        {plan.groupPricing.map((item) => (
+                                            <div key={`${plan.name}-${item.groupSize}`} className="pricing-plan__rate">
+                                                <span>{item.groupSize}</span>
+                                                <strong>{item.price}</strong>
+                                            </div>
+                                        ))}
                                     </div>
 
-                                    <p className="pricing-card__saving">
-                                        {index === 0
-                                            ? "Best for a private, more personal trip."
-                                            : index === 1
-                                              ? "Balanced price and comfort for small groups."
-                                              : "Best value for larger groups and shared travel."}
-                                    </p>
+                                    <ul className="pricing-plan__perks">
+                                        {plan.perks.map((perk) => (
+                                            <li key={`${plan.name}-${perk}`}>{perk}</li>
+                                        ))}
+                                    </ul>
 
-                                    <a href="/contact" className="pricing-card__button">
-                                        Book Now
+                                    <a href="/contact" className="pricing-plan__button">
+                                        Book {plan.name}
                                     </a>
                                 </article>
                             ))}

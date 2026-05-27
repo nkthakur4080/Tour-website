@@ -1,0 +1,177 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.itinerary-tabs {
+    display: grid;
+    gap: 14px;
+
+    &__nav {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+        gap: 10px;
+    }
+
+    &__tab {
+        min-height: 70px;
+        padding: 12px 14px;
+        border: 1px solid #e6ece6;
+        border-radius: 12px;
+        background-color: $color-white;
+        text-align: left;
+        cursor: pointer;
+        transition: border-color $transition-fast, background-color $transition-fast,
+            transform $transition-fast, box-shadow $transition-fast;
+
+        &:hover {
+            transform: translateY(-2px);
+            border-color: #cfe2d4;
+            box-shadow: 0 12px 24px rgba(24, 49, 32, 0.08);
+        }
+
+        strong {
+            display: block;
+            color: $color-heading;
+            font-size: 15px;
+            line-height: 1.35;
+        }
+    }
+
+    &__tab--active {
+        background: linear-gradient(180deg, $color-primary 0%, $color-primary-dark 100%);
+        border-color: $color-primary-dark;
+        box-shadow: 0 16px 30px rgba(47, 109, 79, 0.16);
+
+        .itinerary-tabs__tab-label,
+        strong {
+            color: $color-white;
+        }
+    }
+
+    &__tab-label {
+        display: block;
+        margin-bottom: 6px;
+        color: $color-primary;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.9px;
+        text-transform: uppercase;
+    }
+
+    &__panel {
+        padding: 28px;
+        border: 1px solid #edf2ed;
+        border-radius: 18px;
+        background-color: $color-white;
+        box-shadow: $shadow-soft;
+
+        @include mobile {
+            padding: 22px;
+        }
+    }
+
+    &__panel-header {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        gap: 24px;
+        align-items: start;
+        margin-bottom: 12px;
+
+        @include mobile {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        h3 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: $color-heading;
+
+            @include mobile {
+                font-size: 24px;
+            }
+        }
+
+        p {
+            color: $color-text;
+            line-height: 1.7;
+        }
+    }
+
+    &__day-badge {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 18px;
+        border-radius: 14px;
+        background: linear-gradient(180deg, $color-primary 0%, $color-primary-dark 100%);
+        color: $color-white;
+
+        span {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+        strong {
+            font-size: 24px;
+        }
+    }
+
+    &__sections {
+        display: grid;
+        gap: 8px;
+    }
+
+    &__section {
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        gap: 14px;
+        align-items: start;
+        padding: 18px;
+        border-radius: 12px;
+        background-color: #f9fbf8;
+        border: 1px solid #edf2ed;
+
+        @include mobile {
+            grid-template-columns: 36px 1fr;
+            padding: 16px;
+        }
+    }
+
+    &__step {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background-color: $color-primary;
+        color: $color-white;
+        font-size: 15px;
+        font-weight: 700;
+        box-shadow: 0 10px 18px rgba(47, 109, 79, 0.18);
+
+        @include mobile {
+            width: 36px;
+            height: 36px;
+            font-size: 14px;
+        }
+    }
+
+    &__section-body {
+        min-width: 0;
+
+        h4 {
+            font-size: 17px;
+            color: $color-primary-dark;
+            margin-bottom: 8px;
+        }
+
+        p {
+            margin: 0;
+            color: $color-text;
+            line-height: 1.8;
+        }
+    }
+}
